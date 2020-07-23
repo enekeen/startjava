@@ -6,29 +6,29 @@ public class ConditionalStatement {
 		char nameFirstLetter = 'Y';
 
 		if (age > 20) {
-			System.out.println("Еще нельзя пить алкоголь");
+			System.out.println("Р•С‰Рµ РЅРµР»СЊР·СЏ РїРёС‚СЊ Р°Р»РєРѕРіРѕР»СЊ");
 		}
 
 		if (male) {
-			System.out.println("Особь мужского пола");
+			System.out.println("РћСЃРѕР±СЊ РјСѓР¶СЃРєРѕРіРѕ РїРѕР»Р°");
 		}
 
 		if (!male) {
-			System.out.println("Особь женского пола");
+			System.out.println("РћСЃРѕР±СЊ Р¶РµРЅСЃРєРѕРіРѕ РїРѕР»Р°");
 		}
 
 		if (height < 1.80) {
-			System.out.println("Низковат");
+			System.out.println("РќРёР·РєРѕРІР°С‚");
 		} else {
-			System.out.println("Высоковат");
+			System.out.println("Р’С‹СЃРѕРєРѕРІР°С‚");
 		}
 
 		if (nameFirstLetter == 'M') {
-			System.out.println("Первая буква имени - M");
+			System.out.println("РџРµСЂРІР°СЏ Р±СѓРєРІР° РёРјРµРЅРё - M");
 		} else if (nameFirstLetter == 'I') {
-			System.out.println("Первая буква имени - I");
+			System.out.println("РџРµСЂРІР°СЏ Р±СѓРєРІР° РёРјРµРЅРё - I");
 		} else {
-			System.out.println("Первая буква имени не определилась");
+			System.out.println("РџРµСЂРІР°СЏ Р±СѓРєРІР° РёРјРµРЅРё РЅРµ РѕРїСЂРµРґРµР»РёР»Р°СЃСЊ");
 		}
 	}
 }
