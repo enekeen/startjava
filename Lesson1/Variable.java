@@ -1,8 +1,8 @@
 public class Variable {
 	public static void main(String[] args) {
 		boolean choice = true;
-		byte laptop = 1;
-		short ram = 8;
+		byte countLaptop = 1;
+		short ramSize = 8;
 		int ssdDrive = 1000;
 		long productCode = 1033110000000001l;
 		char studyFolderDrive = 'D';
@@ -17,6 +17,5 @@ public class Variable {
 		System.out.println(studyFolderDrive);
 		System.out.println(priceUS);
 		System.out.println(workHours);
-
 	}
 }
