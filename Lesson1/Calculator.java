@@ -15,7 +15,7 @@ public class Calculator {
 			result = num1 / num2;
 		} else if (operator == '^') {
 			for (int i = 1; i <= num2; i++) {
-				result = result*num1;
+				result *= num1;
 			}
 		} else if (operator =='%') {
 			result = num1 % num2;
