@@ -1,16 +1,16 @@
 public class GuessNumber {
 	public static void main(String[] args) {
-		int secNum = 77;
-		int userInput = 90;
+		int secretNum = 77;
+		int playerNum = 90;
 		do {
-			if (userInput > secNum) {
-				System.out.println("Введенное вами число больше того, что загадал компьютер");
-				userInput--;
-			} else if (userInput < secNum) {
-				System.out.println("Введенное вами число меньше того, что загадал компьютер");
-				userInput++;
+			if (playerNum > secretNum) {
+				System.out.println("Р’РІРµРґРµРЅРЅРѕРµ РІР°РјРё С‡РёСЃР»Рѕ Р±РѕР»СЊС€Рµ С‚РѕРіРѕ, С‡С‚Рѕ Р·Р°РіР°РґР°Р» РєРѕРјРїСЊСЋС‚РµСЂ");
+				playerNum--;
+			} else if (playerNum < secretNum) {
+				System.out.println("Р’РІРµРґРµРЅРЅРѕРµ РІР°РјРё С‡РёСЃР»Рѕ РјРµРЅСЊС€Рµ С‚РѕРіРѕ, С‡С‚Рѕ Р·Р°РіР°РґР°Р» РєРѕРјРїСЊСЋС‚РµСЂ");
+				playerNum++;
 			}
-		} while (userInput != secNum);
-		System.out.println("Вы угадали!");
+		} while (playerNum != secretNum);
+		System.out.println("Р’С‹ СѓРіР°РґР°Р»Рё!");
 	}
 }
