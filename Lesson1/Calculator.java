@@ -17,7 +17,7 @@ public class Calculator {
 			for (int i = 1; i <= num2; i++) {
 				result *= num1;
 			}
-		} else if (operator =='%') {
+		} else if (operator == '%') {
 			result = num1 % num2;
 		}
 
