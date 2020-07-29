@@ -14,6 +14,9 @@ public class Calculator {
 		} else if (operator == '/') {
 			result = num1 / num2;
 		} else if (operator == '^') {
+			if (num2 == 0) {
+				System.out.println(1);
+			}
 			for (int i = 1; i <= num2; i++) {
 				result *= num1;
 			}
