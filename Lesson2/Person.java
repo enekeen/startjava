@@ -22,4 +22,8 @@ public class Person {
 	void talk() {
 		System.out.println("Halo!");
 	}
+
+	void run() {
+		System.out.println("Run, Forrest, run!");
+	}
 }
