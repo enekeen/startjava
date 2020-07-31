@@ -2,22 +2,16 @@ public class WolfTest {
 	public static void main(String[] args) {
 		Wolf wereWolf = new Wolf();
 		
-		wereWolf.sex = "male";
-		wereWolf.nickname = "Fenrir";
-		wereWolf.color = "grey";
-		wereWolf.weight = 1000;
-		wereWolf.age = 3000;
+		wereWolf.setSex("male");
+		wereWolf.setNickname("Fenrir");
+		wereWolf.setColor("grey");
+		wereWolf.setWeight(1000);
+		wereWolf.setAge(3000);
 
-		System.out.println("Wolf sex is " + wereWolf.sex);
-		System.out.println("Wolf nickname is " + wereWolf.nickname);
-		System.out.println("Wolf color is " + wereWolf.color);
-		System.out.println("Wolf weight is " + wereWolf.weight);
-		System.out.println("Wolf age is " + wereWolf.age);
-		
-		wereWolf.walk();
-		wereWolf.sit();
-		wereWolf.run();
-		wereWolf.howl();
-		wereWolf.hunt();
-	}
+		System.out.println("Wolf sex is " + wereWolf.getSex());
+		System.out.println("Wolf nickname is " + wereWolf.getNickname());
+		System.out.println("Wolf color is " + wereWolf.getColor());
+		System.out.println("Wolf weight is " + wereWolf.getWeight());
+		System.out.println("Wolf age is " + wereWolf.getAge());
+		}
 }
