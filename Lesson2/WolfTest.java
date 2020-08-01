@@ -14,5 +14,5 @@ public class WolfTest {
 		System.out.println("Wolf color is " + wereWolf.getColor());
 		System.out.println("Wolf weight is " + wereWolf.getWeight());
 		System.out.println("Wolf age is " + wereWolf.getAge());
-		}
+	}
 }
