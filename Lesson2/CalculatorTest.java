@@ -3,15 +3,24 @@ import java.util.Scanner; //scanner import
 public class CalculatorTest {
 
 	public static void main(String[] args) {
-		Calculator calc1 = new Calculator();
+		Calculator calcl = new Calculator();
 		Scanner scan = new Scanner(System.in);
+		String answer;
 
-		System.out.print("Р’РІРµРґРёС‚Рµ РїРµСЂРІРѕРµ С‡РёСЃР»Рѕ: ");
-		calc1.num1 = scan.nextInt();
-		System.out.print("Р’РІРµРґРёС‚Рµ Р·РЅР°Рє РјР°С‚РµРјР°С‚РёС‡РµСЃРєРѕР№ РѕРїРµСЂР°С†РёРё: ");
-		calc1.operator = scan.next().charAt(0);
-		System.out.print("Р’РІРµРґРёС‚Рµ РІС‚РѕСЂРѕРµ С‡РёСЃР»Рѕ: ");
-		calc1.num2 = scan.nextInt();
-		System.out.println("Р РµР·СѓР»СЊС‚Р°С‚: " + calc1.Calculate());
+		do {
+			System.out.print("Введите первое число: ");
+			calcl.setNum1(scan.nextInt());
+			System.out.print("Введите знак математической операции: ");
+			calcl.setOperation(scan.next().charAt(0));
+			System.out.print("Введите второе число: ");
+			calcl.setNum2(scan.nextInt());
+			System.out.println("Результат: " + calcl.calculate());
+
+			do {
+				// Ответ из powershell при вводе русского "нет" не воспринимается Java как ответ
+				System.out.print("Хотите продолжить? [yes/no]: ");
+				answer = scan.next();
+			} while (!answer.equals("yes") && !answer.equals("no"));
+		} while (!answer.equals("no"));
 	}
 }
