@@ -1,5 +1,4 @@
 public class Jaeger {
-
 	private String modelName;
 	private String mark;
 	private double height;

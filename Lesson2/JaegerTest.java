@@ -3,15 +3,6 @@ public class JaegerTest {
 	public static void main(String[] args) {
 		Jaeger strikerEureka = new Jaeger();
 		Jaeger chernoAlpha = new Jaeger();
-		/*
-		private String modelName;
-		private String mark;
-		private float height;
-		private float weight;
-		private int speed;
-		private	int strength;
-		private int armor;
-		*/
 
 		strikerEureka.setModelName("Striker Eureka");
 		strikerEureka.setMark("Mark-5");
