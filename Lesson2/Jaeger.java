@@ -7,6 +7,24 @@ public class Jaeger {
 	private	int strength;
 	private int armor;
 
+	// First constructor including all parameters
+	public Jaeger(String modelName, String mark, double height, double weight, int speed, int strength, int armor) {
+		this.modelName = modelName;
+		this.mark = mark;
+		this.height = height;
+		this.speed = speed;
+		this.strength = strength;
+		this.armor = armor;
+	}
+
+	// Second constructor excluding speed, strength and armor
+	public Jaeger(String modelName, String mark, double height, double weight) {
+		this.modelName = modelName;
+		this.mark = mark;
+		this.height = height;
+		this.weight = weight;
+	}
+
 	public void setModelName(String modelName) {
 		this.modelName = modelName;
 	}
