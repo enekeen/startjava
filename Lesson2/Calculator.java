@@ -20,20 +20,8 @@ public class Calculator {
 		this.num2 = num2;
 	}
 
-	public char getOperation() {
-		return operation;
-	}
-
 	public void setOperation(char operation) {
 		this.operation = operation;
-	}
-
-	public int getResult() {
-		return result;
-	}
-
-	public void setResult(int result) {
-		this.result = result;
 	}
 
 	public int calculate() {
