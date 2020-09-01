@@ -40,27 +40,26 @@ public class GuessNumber {
 	//Кнопка запуска игры
 	public void play(Player player1, Player player2) {
 		do {
-		//Создаем переменные
-		Scanner scan = new Scanner(System.in);
-		answer = "";
-		secretNum = 1 + rand.nextInt(10);
-		gameStatus = false;
-		
-		//Создаем игроков
-		createPlayers(player1, player2);
-		System.out.println("");
-
-		do {
-			//Создаем числа
-			setNumber(player1);
-			setNumber(player2);
+			//Создаем переменные
+			Scanner scan = new Scanner(System.in);
+			answer = "";
+			secretNum = 1 + rand.nextInt(10);
+			gameStatus = false;
+			//Создаем игроков
+			createPlayers(player1, player2);
 			System.out.println("");
-		} while ((compareNumbers(player1) == false) && (compareNumbers(player2) == false));
 
-		do {
-			System.out.print("Do you want play again? [yes/no]: ");
-			answer = scan.next();
-		} while (!answer.equals("yes") && !answer.equals("no"));
-	} while (!answer.equals("no"));
+			do {
+				//Создаем числа
+				setNumber(player1);
+				setNumber(player2);
+				System.out.println("");
+			} while ((compareNumbers(player1) == false) && (compareNumbers(player2) == false));
+
+			do {
+				System.out.print("Do you want play again? [yes/no]: ");
+				answer = scan.next();
+			} while (!answer.equals("yes") && !answer.equals("no"));
+		} while (!answer.equals("no"));
 	}
 }
