@@ -4,26 +4,26 @@ public class GuessNumber {
 	private Random rand = new Random();
 	private String answer;
 	private int secretNum;
-	private boolean gameStatus;
 	private Player player1;
 	private Player player2;
 
-
-	//Конструктор игроков
-	public void createPlayers(Player player1, Player player2) {
+	// передача игроков из main
+	public GuessNumber(Player player1, Player player2) {
 		this.player1 = player1;
 		this.player2 = player2;
 	}
 
 	//игрок создает число
-	public void setNumber(Player player) {
+	private void setNumber(Player player) {
 		Scanner scan = new Scanner(System.in);
 		System.out.print(player.getName() + " enter your number: ");
 		player.setNumber(scan.nextInt());
 		}
 
 	//Сравниваем число игрока с секретным числом
-	public boolean compareNumbers(Player player) {
+	private boolean compareNumbers(Player player) {
+		boolean gameStatus = false;
+
 		if (player.getNumber() > secretNum) {
 			System.out.println(player.getName() + " num is bigger than secret number.");
 		} else if (player.getNumber() < secretNum) {
@@ -38,28 +38,21 @@ public class GuessNumber {
 	}
 
 	//Кнопка запуска игры
-	public void play(Player player1, Player player2) {
-		do {
-			//Создаем переменные
-			Scanner scan = new Scanner(System.in);
-			answer = "";
-			secretNum = 1 + rand.nextInt(10);
-			gameStatus = false;
-			//Создаем игроков
-			createPlayers(player1, player2);
-			System.out.println("");
+	public void play() {
+		// Создаем переменные
+		secretNum = 1 + rand.nextInt(100);
+		boolean gameStatus = false;
 
-			do {
-				//Создаем числа
-				setNumber(player1);
-				setNumber(player2);
-				System.out.println("");
-			} while ((compareNumbers(player1) == false) && (compareNumbers(player2) == false));
-
-			do {
-				System.out.print("Do you want play again? [yes/no]: ");
-				answer = scan.next();
-			} while (!answer.equals("yes") && !answer.equals("no"));
-		} while (!answer.equals("no"));
+		while(true) {
+			System.out.println("secretNum " + secretNum);
+			setNumber(player1);
+			if (compareNumbers(player1)) {
+				break;
+			}
+			setNumber(player2);
+			if (compareNumbers(player2)) {
+				break;
+			}
+		}
 	}
 }
