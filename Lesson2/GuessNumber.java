@@ -7,6 +7,25 @@ public class GuessNumber {
 	private Player player1;
 	private Player player2;
 
+	//Кнопка запуска игры
+	public void play() {
+		// Создаем переменные
+		secretNum = 1 + rand.nextInt(100);
+		boolean gameStatus = false;
+
+		while(true) {
+			System.out.println("secretNum " + secretNum);
+			setNumber(player1);
+			if (compareNumbers(player1)) {
+				break;
+			}
+			setNumber(player2);
+			if (compareNumbers(player2)) {
+				break;
+			}
+		}
+	}
+
 	// передача игроков из main
 	public GuessNumber(Player player1, Player player2) {
 		this.player1 = player1;
@@ -35,24 +54,5 @@ public class GuessNumber {
 		}
 		System.out.println("");
 		return gameStatus;
-	}
-
-	//Кнопка запуска игры
-	public void play() {
-		// Создаем переменные
-		secretNum = 1 + rand.nextInt(100);
-		boolean gameStatus = false;
-
-		while(true) {
-			System.out.println("secretNum " + secretNum);
-			setNumber(player1);
-			if (compareNumbers(player1)) {
-				break;
-			}
-			setNumber(player2);
-			if (compareNumbers(player2)) {
-				break;
-			}
-		}
 	}
 }
