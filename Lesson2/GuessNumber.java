@@ -1,25 +1,23 @@
 import java.util.*;
 
 public class GuessNumber {
-	private Random rand = new Random();
 	private String answer;
 	private int secretNum;
 	private Player player1;
 	private Player player2;
+	private Random rand = new Random();
 
 	//Кнопка запуска игры
 	public void play() {
-		// Создаем переменные
 		secretNum = 1 + rand.nextInt(100);
-		boolean gameStatus = false;
 
 		while(true) {
 			System.out.println("secretNum " + secretNum);
-			setNumber(player1);
+			inputNumber(player1);
 			if (compareNumbers(player1)) {
 				break;
 			}
-			setNumber(player2);
+			inputNumber(player2);
 			if (compareNumbers(player2)) {
 				break;
 			}
@@ -33,21 +31,17 @@ public class GuessNumber {
 	}
 
 	//игрок создает число
-	private void setNumber(Player player) {
+	private void inputNumber(Player player) {
 		Scanner scan = new Scanner(System.in);
 		System.out.print(player.getName() + " enter your number: ");
 		player.setNumber(scan.nextInt());
-		}
+	}
 
 	//Сравниваем число игрока с секретным числом
 	private boolean compareNumbers(Player player) {
 		boolean gameStatus = false;
+		System.out.println(player.getNumber() > secretNum ? player.getName() + " num is bigger than secret number" : player.getName() + "num is smaller than secret number");
 
-		if (player.getNumber() > secretNum) {
-			System.out.println(player.getName() + " num is bigger than secret number.");
-		} else if (player.getNumber() < secretNum) {
-			System.out.println(player.getName() + " num is smaller than secret number.");
-		}
 		if (player.getNumber() == secretNum) {
 			System.out.println(player.getName() + " is the winner!");
 			gameStatus = true;
