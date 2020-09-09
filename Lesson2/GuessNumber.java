@@ -40,11 +40,12 @@ public class GuessNumber {
 	//Сравниваем число игрока с секретным числом
 	private boolean compareNumbers(Player player) {
 		boolean gameStatus = false;
-		System.out.println(player.getNumber() > secretNum ? player.getName() + " num is bigger than secret number" : player.getName() + "num is smaller than secret number");
 
 		if (player.getNumber() == secretNum) {
 			System.out.println(player.getName() + " is the winner!");
 			gameStatus = true;
+		} else {
+			System.out.println(player.getName() + " num is " + (player.getNumber() > secretNum ? "bigger" : "smaller") + " than secret number");
 		}
 		System.out.println("");
 		return gameStatus;
