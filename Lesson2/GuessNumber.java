@@ -7,6 +7,12 @@ public class GuessNumber {
 	private Player player2;
 	private Random rand = new Random();
 
+	// передача игроков из main
+	public GuessNumber(Player player1, Player player2) {
+		this.player1 = player1;
+		this.player2 = player2;
+	}
+
 	//Кнопка запуска игры
 	public void play() {
 		secretNum = 1 + rand.nextInt(100);
@@ -22,12 +28,6 @@ public class GuessNumber {
 				break;
 			}
 		}
-	}
-
-	// передача игроков из main
-	public GuessNumber(Player player1, Player player2) {
-		this.player1 = player1;
-		this.player2 = player2;
 	}
 
 	//игрок создает число
