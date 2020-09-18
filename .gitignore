@@ -1,5 +1,11 @@
-# Ignore files with type "Class"
+# Ignore files with type "class"
 *.class
+
+# Ignore files with type "txt"
+*.txt
 
 # Ignore "bin" directory
 /bin
+
+# Ignore full gitignore conf
+.gitignore_full
