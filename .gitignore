@@ -4,8 +4,5 @@
 # Ignore files with type "txt"
 *.txt
 
-# Ignore "bin" directory
-/bin
-
-# Ignore full gitignore conf
-.gitignore_full
+# Ignore "out" directory
+/out

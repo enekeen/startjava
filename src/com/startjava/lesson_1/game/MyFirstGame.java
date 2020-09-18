@@ -1,6 +1,6 @@
 package com.startjava.lesson_1.game;
 
-public class GuessNumber {
+public class MyFirstGame {
 	public static void main(String[] args) {
 		int secNum = 77;
 		int userInput = 90;
