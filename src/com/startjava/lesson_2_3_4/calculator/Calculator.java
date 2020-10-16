@@ -1,7 +1,5 @@
 package com.startjava.lesson_2_3_4.calculator;
 
-import java.lang.Math.*;
-
 public class Calculator {
     private String[] strExp;
     private int num1;
