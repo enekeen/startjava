@@ -10,9 +10,8 @@ public class CalculatorTest {
 
         do {
             System.out.print("Введите математическое выражение: ");
-            calc.setExpression(scan.nextLine());
-
-            System.out.println("Результат: " + calc.calculate());
+            calc.calculate(scan.nextLine());
+            System.out.println("Результат: " + calc.getResult());
 
             do {
                 System.out.print("Хотите продолжить? [yes/no]: ");

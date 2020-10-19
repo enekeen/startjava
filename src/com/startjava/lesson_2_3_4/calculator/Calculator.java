@@ -7,14 +7,9 @@ public class Calculator {
     private char operation;
     private int result;
 
-    public void setExpression(String expression) {
-        this.strExp = expression.split(" ");
-        this.num1 = Integer.parseInt(strExp[0]);
-        this.num2 = Integer.parseInt(strExp[2]);
-        this.operation = strExp[1].charAt(0);
-    }
-
-    public int calculate() {
+    public void calculate(String expression) {
+        splitExpression(expression);
+        
         switch (operation) {
             case '+' -> result = Math.addExact(num1, num2);
             case '-' -> result = Math.subtractExact(num1, num2);
@@ -23,6 +18,16 @@ public class Calculator {
             case '^' -> result = (int) Math.pow(num1, num2);
             case '%' -> result = Math.floorMod(num1, num2);
         }
+    }
+
+    public void splitExpression(String expression) {
+        this.strExp = expression.split(" ");
+        this.num1 = Integer.parseInt(strExp[0]);
+        this.num2 = Integer.parseInt(strExp[2]);
+        this.operation = strExp[1].charAt(0);
+    }
+
+    public int getResult() {
         return result;
     }
 }
