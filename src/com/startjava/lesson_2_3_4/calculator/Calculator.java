@@ -1,13 +1,13 @@
 package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
-    private String[] strExp;
+    private String[] strExpression;
     private int num1;
     private int num2;
     private char operation;
     private int result;
 
-    public void calculate(String expression) {
+    public int calculate(String expression) {
         splitExpression(expression);
         
         switch (operation) {
@@ -18,16 +18,13 @@ public class Calculator {
             case '^' -> result = (int) Math.pow(num1, num2);
             case '%' -> result = Math.floorMod(num1, num2);
         }
-    }
-
-    public void splitExpression(String expression) {
-        this.strExp = expression.split(" ");
-        this.num1 = Integer.parseInt(strExp[0]);
-        this.num2 = Integer.parseInt(strExp[2]);
-        this.operation = strExp[1].charAt(0);
-    }
-
-    public int getResult() {
         return result;
+    }
+
+    private void splitExpression(String expression) {
+        this.strExpression = expression.split(" ");
+        this.num1 = Integer.parseInt(strExpression[0]);
+        this.num2 = Integer.parseInt(strExpression[2]);
+        this.operation = strExpression[1].charAt(0);
     }
 }
