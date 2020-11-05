@@ -32,7 +32,7 @@ public class Player {
     }
 
     public void clearEnteredNumbers() {
-        Arrays.fill(enteredNumbers, 0);
+        Arrays.fill(enteredNumbers,0, attempt,0);
     }
 
     public void printEnteredNumbers() {
