@@ -3,32 +3,35 @@ package com.startjava.lesson_2_3_4.game;
 import java.util.Arrays;
 
 public class Player {
-	private String name;
-	private int number;
-	private int[] arrayOfNumbers = new int[10];
+    private String name;
+    private int attempt = 1;
+    private int[] enteredNumbers = new int[10]; // количество попыток задаем здесь
 
+    public Player(String name) {
+        this.name = name;
+    }
 
-	public Player(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setAttempt(int attempt) {
+        this.attempt = attempt;
+    }
 
-	public void setNumber(int number) {
-		this.number = number;
-	}
+    public int getAttempt() {
+        return attempt;
+    }
 
-	public int getNumber() {
-		return number;
-	}
+    public int[] getEnteredNumbers() {
+        return Arrays.copyOf(enteredNumbers, enteredNumbers.length);
+    }
 
-	public int[] getArrayOfNumbers() {
-		return Arrays.copyOf(arrayOfNumbers,  arrayOfNumbers.length);
-	}
+    public void setEnteredNumber(int attempt, int number) {
+        enteredNumbers[attempt - 1] = number; // вносим число в массив с индексом заранее инкрементированным
+    }
 
-	public void inputNumberToArray(int i, int number) {
-		arrayOfNumbers[i] = number;
-	}
+    public void clearEnteredNumbers() {
+        Arrays.fill(enteredNumbers, 0);
+    }
 }
