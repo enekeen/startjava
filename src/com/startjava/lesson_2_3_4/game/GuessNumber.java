@@ -24,7 +24,7 @@ public class GuessNumber {
             // Игрок 1
             System.out.println("Игрок " + player1.getName() + ". Попытка номер " + player1.getAttempt());
             inputNumber(player1); // введенное число добавляется в массив
-            System.out.println("Array = " + Arrays.toString(player1.getEnteredNumbers())); // отображаем текущее состояние массива
+            //System.out.println("Array = " + Arrays.toString(player1.getEnteredNumbers())); // отображаем текущее состояние массива
 
             if (compareNumbers(player1.getAttempt(), player1)) {
                 break;
@@ -32,16 +32,15 @@ public class GuessNumber {
 
             if (player1.getAttempt() == player1.getEnteredNumbers().length) {
                 System.out.println(player1.getName() + " исчерпал все " + player1.getAttempt() + " попыток." + "\n");
-                player1.clearEnteredNumbers(); // обнуляем массив
             } else {
                 player1.setAttempt(player1.getAttempt() + 1); // инкрементируем номер попытки
             }
-            System.out.println("Теперь в переменной попытки хранится " + player1.getAttempt() + "\n");
+            //System.out.println("Теперь в переменной попытки хранится " + player1.getAttempt() + "\n");
 
             // Игрок 2
             System.out.println("Игрок " + player2.getName() + ". Попытка номер " + player2.getAttempt());
             inputNumber(player2); // введенное число добавляется в массив
-            System.out.println("Array = " + Arrays.toString(player2.getEnteredNumbers())); // отображаем текущее состояние массива
+            //System.out.println("Array = " + Arrays.toString(player2.getEnteredNumbers())); // отображаем текущее состояние массива
 
             if (compareNumbers(player2.getAttempt(), player2)) {
                 break;
@@ -49,18 +48,16 @@ public class GuessNumber {
 
             if (player2.getAttempt() == player2.getEnteredNumbers().length) {
                 System.out.println(player2.getName() + " исчерпал все " + player2.getAttempt() + " попыток." + "\n");
-                player2.clearEnteredNumbers(); // обнуляем массив
                 break;
             } else {
                 player2.setAttempt(player2.getAttempt() + 1); // инкрементируем номер попытки
             }
-            System.out.println("Теперь в переменной попытки хранится " + player2.getAttempt() + "\n");
+            //System.out.println("Теперь в переменной попытки хранится " + player2.getAttempt() + "\n");
         }
-        player1.setAttempt(1);
-        player2.setAttempt(1);
+        refreshGame(player1, player2);
     }
 
-    // Игрок вводит число
+    // Игрок вводит число и добавляем его в массив
     private void inputNumber(Player player) {
         Scanner scan = new Scanner(System.in);
         System.out.print(player.getName() + " enter your number: ");
@@ -71,13 +68,21 @@ public class GuessNumber {
     private boolean compareNumbers(int attempt, Player player) {
         boolean gameStatus = false;
 
-        if (player.getEnteredNumbers()[0] == secretNum) {
-            System.out.println(player.getName() + " is the winner!");
+        if (player.getEnteredNumbers()[player.getAttempt()-1] == secretNum) {
+            System.out.println(player.getName() + " is the winner!" + "\n");
+            player.printEnteredNumbers();
             gameStatus = true;
         } else {
-            System.out.println(player.getName() + " num is " + (player.getEnteredNumbers()[0] > secretNum ? "bigger" : "smaller") + " than secret number");
+            System.out.println(player.getName() + " num is " + (player.getEnteredNumbers()[player.getAttempt()-1] > secretNum ? "bigger" : "smaller") + " than secret number");
         }
         System.out.println("");
         return gameStatus;
+    }
+
+    public void refreshGame(Player player1, Player player2) {
+        player1.setAttempt(1); // обнуляем количество попыток
+        player2.setAttempt(1);
+        player1.clearEnteredNumbers(); // обнуляем массив
+        player2.clearEnteredNumbers();
     }
 }

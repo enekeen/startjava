@@ -34,4 +34,8 @@ public class Player {
     public void clearEnteredNumbers() {
         Arrays.fill(enteredNumbers, 0);
     }
+
+    public void printEnteredNumbers() {
+        System.out.println("Список введеных чисел:" + Arrays.toString(Arrays.copyOf(enteredNumbers, attempt)));
+    }
 }
