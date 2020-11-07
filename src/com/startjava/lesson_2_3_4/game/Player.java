@@ -5,10 +5,11 @@ import java.util.Arrays;
 public class Player {
     private String name;
     private int attempt = 1;
-    private int[] enteredNumbers = new int[10]; // количество попыток задаем здесь
+    private int[] enteredNumbers;
 
-    public Player(String name) {
+    public Player(String name, int attemptSum) {
         this.name = name;
+        this.enteredNumbers = new int[attemptSum]; // ???
     }
 
     public String getName() {
@@ -24,6 +25,11 @@ public class Player {
     }
 
     public int[] getEnteredNumbers() {
+        return Arrays.copyOf(enteredNumbers, attempt);
+    }
+
+    //for test
+    public int[] showArray() {
         return Arrays.copyOf(enteredNumbers, enteredNumbers.length);
     }
 
@@ -32,10 +38,6 @@ public class Player {
     }
 
     public void clearEnteredNumbers() {
-        Arrays.fill(enteredNumbers,0, attempt,0);
-    }
-
-    public void printEnteredNumbers() {
-        System.out.println("Список введеных чисел:" + Arrays.toString(Arrays.copyOf(enteredNumbers, attempt)));
+        Arrays.fill(enteredNumbers, 0, attempt - 1, 0);
     }
 }
