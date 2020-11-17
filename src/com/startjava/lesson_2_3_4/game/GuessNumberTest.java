@@ -5,17 +5,21 @@ import java.util.*;
 public class GuessNumberTest {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
+
+        // ШАГ ПЕРВЫЙ
         System.out.print("Please enter amount of attempts: ");
-        int attemptSum = Integer.parseInt(scan.nextLine());
+        int countAttempts = Integer.parseInt(scan.nextLine());
+
+        // ШАГ ВТОРОЙ
         System.out.print("Player1 enter your name: ");
-        Player player1 = new Player(scan.nextLine(), attemptSum);
-        //for test
-        System.out.println(player1.getName() + " массив сейчас: " + player1.showArray().length + " и количество попыток: " + attemptSum);
+        Player player1 = new Player(scan.nextLine(), countAttempts);
+
+        // ШАГ ВТОРОЙ
         System.out.print("Player2 enter your name: ");
-        Player player2 = new Player(scan.nextLine(), attemptSum);
-        //for test
-        System.out.println(player2.getName() + " массив сейчас: " + player2.showArray().length + " и количество попыток: " + attemptSum);
-        GuessNumber game = new GuessNumber(player1, player2, attemptSum);
+        Player player2 = new Player(scan.nextLine(), countAttempts);
+
+        // СОЗДАЛАСЬ ИГРА
+        GuessNumber game = new GuessNumber(player1, player2, countAttempts);
         String answer = "";
 
         do {

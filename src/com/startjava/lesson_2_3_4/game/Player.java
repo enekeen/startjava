@@ -7,9 +7,10 @@ public class Player {
     private int attempt = 1;
     private int[] enteredNumbers;
 
+    // ВВЕДЕНОЕ КОЛИЧЕСТВО ПОПЫТОК РАВНО ДЛИНЕ МАССИВА
     public Player(String name, int attemptSum) {
         this.name = name;
-        this.enteredNumbers = new int[attemptSum]; // ???
+        enteredNumbers = new int[attemptSum];
     }
 
     public String getName() {
@@ -28,13 +29,9 @@ public class Player {
         return Arrays.copyOf(enteredNumbers, attempt);
     }
 
-    //for test
-    public int[] showArray() {
-        return Arrays.copyOf(enteredNumbers, enteredNumbers.length);
-    }
-
+    // ЧИСЛО ВНОСИТСЯ В ИНДЕКС МАССИВА РАВНЫЙ ПОПЫТКЕ - 1
     public void setEnteredNumber(int attempt, int number) {
-        enteredNumbers[attempt - 1] = number; // вносим число в массив с индексом заранее инкрементированным
+        enteredNumbers[attempt - 1] = number;
     }
 
     public void clearEnteredNumbers() {
