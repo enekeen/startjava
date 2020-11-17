@@ -8,7 +8,7 @@ public class GuessNumber {
     private Player player2;
     private int ATTEMPT_SUM;
     private Random rand = new Random();
-    //ArrayList<Player> players = new ArrayList<>();
+    HashMap<Integer, String> players = new HashMap();
 
     public GuessNumber(Player player1, Player player2, int ATTEMPT_SUM) {
         this.player1 = player1;
@@ -18,12 +18,11 @@ public class GuessNumber {
 
     public void play() {
         secretNum = 1 + rand.nextInt(100);
+        players.clear();
+        players.put(1, player1.getName());
+        players.put(2, player2.getName());
         System.out.println("");
         setUp(player1, player2);
-
-        /*
-        проверить последний ли это игрок или нет
-         */
 
         while (true) {
             System.out.println("secretNum = " + secretNum + "\n");
@@ -35,10 +34,10 @@ public class GuessNumber {
             }
         }
         System.out.println("Список введенных чисел обоих игроков: ");
-        System.out.println(player1.getName() + " attempt = " + player1.getAttempt());
+        System.out.print(player1.getName() + ": ");
         printEnteredNumbers(player1.getEnteredNumbers(), player1.getAttempt());
         System.out.println("");
-        System.out.println(player2.getName() + " attempt = " + player2.getAttempt());
+        System.out.print(player2.getName() + ": ");
         printEnteredNumbers(player2.getEnteredNumbers(), player2.getAttempt());
         System.out.println("\n");
     }
@@ -55,12 +54,19 @@ public class GuessNumber {
         inputNumber(player);
 
         if (compareNumbers(player.getAttempt(), player)) {
-            System.out.println("Compare numbers = TRUE");
             moveStatus = true;
         } else if (player.getAttempt() == ATTEMPT_SUM) {
-            System.out.println("getAttempt = ATTEMPT_SUM");
             System.out.println(player.getName() + " исчерпал все " + ATTEMPT_SUM + " попыток." + "\n");
-            moveStatus = true;
+
+            // Проверяем, последний ли игрок в массиве
+            for (Map.Entry entry : players.entrySet()) {
+                if (entry.getValue().equals(player.getName())) {
+                    if (entry.getKey().equals(2)) {
+                        System.out.println("The Last attempt was made by " + player.getName());
+                        moveStatus = true;
+                    }
+                }
+            }
         }
         return moveStatus;
     }
@@ -93,7 +99,6 @@ public class GuessNumber {
     }
 
     private void printEnteredNumbers(int[] array, int attempt) {
-        System.out.println("printEnteredNumbers. Array is = " + Arrays.toString(array) + "; attempt is = " + attempt);
         for (int i = 0; i < attempt; i++) {
             System.out.print(array[i] + " ");
         }
