@@ -8,9 +8,9 @@ public class Player {
     private int[] enteredNumbers;
 
     // ВВЕДЕНОЕ КОЛИЧЕСТВО ПОПЫТОК РАВНО ДЛИНЕ МАССИВА
-    public Player(String name, int attemptSum) {
+    public Player(String name, int length) {
         this.name = name;
-        enteredNumbers = new int[attemptSum];
+        enteredNumbers = new int[length];
     }
 
     public String getName() {
@@ -30,7 +30,7 @@ public class Player {
     }
 
     // ЧИСЛО ВНОСИТСЯ В ИНДЕКС МАССИВА РАВНЫЙ ПОПЫТКЕ - 1
-    public void setEnteredNumber(int attempt, int number) {
+    public void setEnteredNumber(int number) {
         enteredNumbers[attempt - 1] = number;
     }
 

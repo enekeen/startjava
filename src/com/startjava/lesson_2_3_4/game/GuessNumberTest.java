@@ -7,15 +7,15 @@ public class GuessNumberTest {
         Scanner scan = new Scanner(System.in);
 
         // ШАГ ПЕРВЫЙ
-        System.out.print("Please enter amount of attempts: ");
+        System.out.print("Введите количество попыток: ");
         int countAttempts = Integer.parseInt(scan.nextLine());
 
         // ШАГ ВТОРОЙ
-        System.out.print("Player1 enter your name: ");
+        System.out.print("Игрок 1 введите ваше имя: ");
         Player player1 = new Player(scan.nextLine(), countAttempts);
 
         // ШАГ ВТОРОЙ
-        System.out.print("Player2 enter your name: ");
+        System.out.print("Игрок 2 введите ваше имя: ");
         Player player2 = new Player(scan.nextLine(), countAttempts);
 
         // СОЗДАЛАСЬ ИГРА
@@ -25,7 +25,7 @@ public class GuessNumberTest {
         do {
             game.play();
             do {
-                System.out.print("Do you want play again? [yes/no]: ");
+                System.out.print("Хотите еще сыграть? [yes/no]: ");
                 answer = scan.next();
             } while (!answer.equals("yes") && !answer.equals("no"));
         } while (!answer.equals("no"));
