@@ -89,6 +89,7 @@ public class GuessNumber {
 
     private void printEnteredNumbers(Player player) {
         System.out.print(player.getName() + ": ");
+        
         for (int num : player.getEnteredNumbers()) {
             System.out.print(num + " ");
         }
