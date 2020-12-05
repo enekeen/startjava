@@ -4,41 +4,34 @@ import java.util.*;
 
 public class GuessNumber {
     private int secretNum;
-    private Player player1;
-    private Player player2;
-    private int ATTEMPT_SUM;
+    private final int COUNT_ATTEMPTS;
     private Random rand = new Random();
     Player[] players = new Player[2];
 
-    public GuessNumber(Player player1, Player player2, int ATTEMPT_SUM) {
-        this.player1 = player1;
-        this.player2 = player2;
-        this.ATTEMPT_SUM = ATTEMPT_SUM;
+    public GuessNumber(Player player1, Player player2, int countAttempts) {
+        players[0] = player1;
+        players[1] = player2;
+        this.COUNT_ATTEMPTS = countAttempts;
     }
 
     public void play() {
         secretNum = 1 + rand.nextInt(100);
-        players[0] = player1;
-        players[1] = player2;
-
         System.out.println("");
-        setUp(player1, player2);
+        setUp(players[0], players[1]);
 
         while (true) {
             System.out.println("Загаданное число = " + secretNum + "\n");
 
-            if (makeMove(player1)) {
+            if (makeMove(players[0])) {
                 break;
-            } else if (makeMove(player2)) {
+            } else if (makeMove(players[1])) {
                 break;
             }
         }
         System.out.println("Список введенных чисел обоих игроков: ");
-        System.out.print(player1.getName() + ": ");
-        printEnteredNumbers(player1);
+        printEnteredNumbers(players[0]);
         System.out.println("");
-        System.out.print(player2.getName() + ": ");
-        printEnteredNumbers(player2);
+        printEnteredNumbers(players[1]);
         System.out.println("\n");
     }
 
@@ -55,8 +48,8 @@ public class GuessNumber {
 
         if (compareNumbers(player)) {
             moveStatus = true;
-        } else if (player.getAttempt() == ATTEMPT_SUM) {
-            System.out.println(player.getName() + " исчерпал все " + ATTEMPT_SUM + " попыток." + "\n");
+        } else if (player.getAttempt() == COUNT_ATTEMPTS) {
+            System.out.println(player.getName() + " исчерпал все " + COUNT_ATTEMPTS + " попыток." + "\n");
 
             // Проверяем, последний ли игрок в массиве
             for (Player member : players) {
@@ -81,19 +74,21 @@ public class GuessNumber {
 
     private boolean compareNumbers(Player player) {
         boolean gameStatus = false;
+        int playerNumber = player.getEnteredNumbers()[player.getAttempt() - 1];
 
-        if (player.getEnteredNumbers()[player.getAttempt() - 1] == secretNum) {
+        if (playerNumber == secretNum) {
             System.out.println(player.getName() + " победитель!" + "\n");
             gameStatus = true;
         } else {
-            System.out.println("Число " + player.getEnteredNumbers()[player.getAttempt() - 1] +
-                    (player.getEnteredNumbers()[player.getAttempt() - 1] > secretNum ? " больше," : " меньше,") + " чем загаданное число");
+            System.out.println("Число " + playerNumber +
+                    (playerNumber > secretNum ? " больше," : " меньше,") + " чем загаданное число");
         }
         System.out.println("");
         return gameStatus;
     }
 
     private void printEnteredNumbers(Player player) {
+        System.out.print(player.getName() + ": ");
         for (int num : player.getEnteredNumbers()) {
             System.out.print(num + " ");
         }
